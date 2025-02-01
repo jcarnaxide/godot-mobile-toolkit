@@ -29,4 +29,9 @@ dependencies {
     // Firebase dependencies
     implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
     implementation("com.google.firebase:firebase-analytics")
+
+    // Test dependencies
+    testImplementation("junit:junit:$jUnitVersion")
+    testImplementation("org.mockito:mockito-core:$mockitoVersion")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion")
 }
