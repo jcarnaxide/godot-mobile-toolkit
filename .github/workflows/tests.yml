@@ -1,0 +1,36 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  android-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+      - name: Run Android Tests
+        run: |
+          cd android
+          ./gradlew test
+  
+  ios-tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run iOS Tests
+        run: |
+          cd ios
+          swift test
+  
+  godot-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Godot
+        uses: godot-actions/setup-godot@v1
+      - name: Run Godot Tests
+        run: |
+          godot --script tests/integration/godot/run_tests.gd
