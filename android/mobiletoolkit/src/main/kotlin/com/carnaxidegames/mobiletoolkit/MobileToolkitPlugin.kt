@@ -5,6 +5,10 @@ import org.godotengine.godot.plugin.GodotPlugin
 import org.godotengine.godot.plugin.UsedByGodot
 
 class MobileToolkitPlugin(godot: Godot) : GodotPlugin(godot) {
+    init {
+        registerFeature("analytics", AnalyticsFeature())
+    }
+    
     override fun getPluginName() = "MobileToolkit"
     
     private val features = mutableMapOf<String, Feature>()

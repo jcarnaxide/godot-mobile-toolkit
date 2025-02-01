@@ -5,6 +5,7 @@ import Foundation
     
     public override init() {
         super.init()
+        registerFeature("analytics", AnalyticsFeature())
     }
     
     internal func registerFeature(name: String, feature: Feature) {
